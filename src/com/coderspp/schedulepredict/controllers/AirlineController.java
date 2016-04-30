@@ -35,7 +35,7 @@ public class AirlineController {
 		List<Airline> airlines = airlineService.addAirlines();
 
 		ResponseEntity<List<Airline>> response = new ResponseEntity<List<Airline>>(airlines, HttpStatus.CREATED);
-
+		
 		return response;
 
 	}
