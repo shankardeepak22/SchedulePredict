@@ -1,0 +1,90 @@
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+
+h1 {
+	font-family: 'Poiret One', cursive;
+	color: white;
+	font-size: 90pt;
+	text-align: center;
+}
+
+#menu a {
+	color: white;
+}
+
+#menu a:hover {
+	color: white;
+	background: rgba(1, 1, 1, 0.4);
+}
+
+#container {
+	min-height: 100%;
+	position: relative;
+}
+
+#header {
+	padding: inherit;
+}
+
+#body {
+	padding: 10px;
+	padding-bottom: 60px; /* Height of the footer */
+}
+
+#footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 60px; /* Height of the footer */
+	padding-bottom: 10px;
+}
+
+.schedule-p-bg {
+	/* background: rgb(153, 51, 255); */
+	background: #6f5499;
+	background-attachment: fixed;
+}
+
+.schedule-nav {
+	margin-bottom: inherit;
+	background-color: rgba(1, 1, 1, 0.3);
+	border: 0em;
+	font-family: 'Poiret One', cursive;
+	font-size: medium;
+	color: white;
+	text-align: center;
+}
+
+.schedule-footer {
+	background-color: rgba(0, 0, 0, 0.3);
+	width: 100%;
+	height: 50px;
+}
+
+.searchbar {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -50px; /* this is half the height of your div*/
+	margin-left: -100px; /*this is half of width of your div*/
+}
+
+.buttonSearch{
+	position: absolute;
+	left: 50%;
+}
+
+.buttonCancel{
+	position: absolute;
+	right: 50%
+}
+
+.title{
+	font-family: 'Poiret One', cursive;
+	font-size: 50pt;
+	color: #000080;
+	text-align: center;
+}

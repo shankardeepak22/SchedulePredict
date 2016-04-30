@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This is the persistance module that will hold the names of the module 
+	that are to be persisted using hibernate. -->
+<persistence version="2.0"
+	xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+	<persistence-unit name="SchedulePredict"
+		transaction-type="RESOURCE_LOCAL">
+		<class>com.coderspp.schedulepredict.model.Airline</class>
+		<class>com.coderspp.schedulepredict.model.Airport</class>
+	</persistence-unit>
+</persistence>
