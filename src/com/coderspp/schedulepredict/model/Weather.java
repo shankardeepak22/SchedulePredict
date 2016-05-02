@@ -11,6 +11,8 @@ import java.util.Date;
  */
 public class Weather {
 
+	
+
 	private Double latitude;
 	private Double longitude;
 	private Date date;
@@ -283,5 +285,16 @@ public class Weather {
 	public void setWind_deg(Double wind_deg) {
 		this.wind_deg = wind_deg;
 	}
-
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Weather [latitude=" + latitude + ", longitude=" + longitude + ", date=" + date + ", temp=" + temp
+				+ ", temp_min=" + temp_min + ", temp_max=" + temp_max + ", pressure=" + pressure + ", sea_level="
+				+ sea_level + ", grnd_level=" + grnd_level + ", humidity=" + humidity + ", temp_kf=" + temp_kf
+				+ ", weather_id=" + weather_id + ", weather_main=" + weather_main + ", weather_description="
+				+ weather_description + ", cloud_per=" + cloud_per + ", wind_speed=" + wind_speed + ", wind_deg="
+				+ wind_deg + "]";
+	}
 }
