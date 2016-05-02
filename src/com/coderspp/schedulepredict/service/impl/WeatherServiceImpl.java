@@ -35,7 +35,7 @@ public class WeatherServiceImpl implements WeatherService {
 	 */
 	@Override
 	public List<Weather> getWeather(double lat, double lng) {
-		url = url + "?lat=" + String.valueOf(lat) + "&lon=" + String.valueOf(lng) + apiKey;
+		url = url + "lat=" + String.valueOf(lat) + "&lon=" + String.valueOf(lng) + apiKey;
 		URL weatherURL;
 		InputStream stream;
 		String jsonStream = new String();
@@ -45,7 +45,7 @@ public class WeatherServiceImpl implements WeatherService {
 		List<Weather> weatherList = new ArrayList<>();
 
 		try {
-
+			System.out.println(url);
 			weatherURL = new URL(url);
 			stream = weatherURL.openStream();
 			scanner = new Scanner(stream);
