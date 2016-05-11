@@ -101,4 +101,13 @@ public class WeatherController {
 		return response;
 	}
 
+	@RequestMapping(value = "/all/", method = RequestMethod.GET)
+	public ResponseEntity<List<ArrayList<Weather>>> getAll() {
+		List<ArrayList<Weather>> weatherList = weatherService.getAll();
+		ResponseEntity<List<ArrayList<Weather>>> response = new ResponseEntity<List<ArrayList<Weather>>>(weatherList,
+				HttpStatus.OK);
+		return response;
+		
+	}
+
 }

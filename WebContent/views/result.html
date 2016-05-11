@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Welcome to flight scheduling</title>
+<title>Prediction</title>
 <link
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -18,8 +18,10 @@
 	crossorigin="anonymous">
 <link href='http://fonts.googleapis.com/css?family=Poiret+One'
 	rel='stylesheet' type='text/css'>
-<link href='../resources/css/poiret.css' rel="stylesheet">
-<link href='../resources/css/schedule-index.css' rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Open+Sans'
+	rel='stylesheet' type='text/css'>
+<link href='../css/poiret.css' rel="stylesheet">
+<link href='../css/schedule-index.css' rel="stylesheet">
 <link
 	href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/css/bootstrap-datepicker.css"
 	rel="stylesheet">
@@ -32,25 +34,22 @@
 	crossorigin="anonymous"></script>
 <script type="text/javascript"
 	src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/js/bootstrap-datepicker.js"></script>
-<script type="text/javascript"
-	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
-<script type="text/javascript" src="../resources/js/controllers.js"></script>
-
-
 
 </head>
 <body
-	style="background-size: cover; background-image: url('../resources/images/background.jpeg'); background-position: 100%;">
+	style="background-size: cover; background-image: url('../images/background2.png'); background-position: 100%;">
 	<div id="header">
 
 		<nav
 			class="navbar navbar-default navbar-fixed-top poiret schedule-nav"
 			style="position: center" role="navigation">
 
+
 			<ul id="menu"
 				class="nav navbar-nav navbar-collapse center-block collapse pull-right">
 
-				<li><a href="#" class="navbar-link">FLIGHT SCHEDULES</a></li>
+				<li><a href="index.html" class="navbar-link">FLIGHT
+						SCHEDULES</a></li>
 				<li><a href="#" class="navbar-link">WEATHER FORECAST</a></li>
 
 			</ul>
@@ -61,45 +60,52 @@
 
 
 
-	<div id="body" style="padding-top: 15%">
+	<div id="body" style="padding-top: 5%">
 		<div>
-
-			<p class="title" align="center">Flight Schedule Prediction</p>
+			<form class="navbar-form navbar-left" role="search">
+				<div class="form-group">
+					<input type="text" class="form-control input-group input-group-lg"
+						placeholder="Flight Number"> <input type="text" id="date"
+						class="form-control input-group input-group-lg" placeholder="Date">
+				</div>
+				<button type="submit" class="btn btn-default">Submit</button>
+				<button type="submit" class="btn btn-default">Cancel</button>
+			</form>
 		</div>
-		<form role="form" action="/SchedulePredict/predict/" method="get"
-			ng-controller="searchController">
-			<div>
-				<div class="input-group input-group-lg" align="center"
-					style="padding-left: 25%; padding-right: 25%">
-					<span class="input-group-addon" id="sizing-addon1"><i
-						class="fa fa-plane"></i></span> <input type="text" id="flightNumber"
-						name="flightNumber" align="middle" class="form-control"
-						ng-model="flightNumber" placeholder="Flight Number"
-						aria-describedby="sizing-addon1">
-				</div>
+		<div style="padding-top: 6%">
+			<div align="center">
 
+				<table class="table table-hover" width="100%"
+					style="padding-left: 05%">
+					<thead>
+						<tr>
+							<th>Flight Number</th>
+							<th>Airlines</th>
+							<th>From</th>
+							<th>To</th>
+							<th>Date</th>
+							<th>Prediction</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th scope="row">BA0118</th>
+							<td>British Airways</td>
+							<td>Bangalore</td>
+							<td>London</td>
+							<td>01/01/2015</td>
+							<td>As per the schedule</td>
+						</tr>
+
+					</tbody>
+				</table>
 			</div>
-			<br>
-			<div class="row" style="padding-left: 25%; padding-right: 25%">
 
-				<div class="col-xs-6">
-					<input type="submit" value="search"
-						class="btn btn-default buttonSearch" style="width: 50%;">
-				</div>
-				<div class="col-xs-6">
-					<input type="button" value="Cancel"
-						class="btn btn-default buttonCancel" style="width: 50%;">
-				</div>
-
-			</div>
-		</form>
+		</div>
 	</div>
 
-	<div id="footer" class=" schedule-footer poiret">
-		<footer>
-			<p align="center">copyright &copy 2016</p>
-		</footer>
-	</div>
+
+	<div></div>
 </body>
 
 </html>

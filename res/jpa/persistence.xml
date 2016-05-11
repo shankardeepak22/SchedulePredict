@@ -8,5 +8,6 @@
 		transaction-type="RESOURCE_LOCAL">
 		<class>com.coderspp.schedulepredict.model.Airline</class>
 		<class>com.coderspp.schedulepredict.model.Airport</class>
+		<class>com.coderspp.schedulepredict.model.Flight</class>
 	</persistence-unit>
 </persistence>

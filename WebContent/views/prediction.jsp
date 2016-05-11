@@ -1,3 +1,6 @@
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,6 +26,7 @@
 <link
 	href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/css/bootstrap-datepicker.css"
 	rel="stylesheet">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
 	integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
@@ -41,6 +45,7 @@
 </head>
 <body
 	style="background-size: cover; background-image: url('../resources/images/background.jpeg'); background-position: 100%;">
+
 	<div id="header">
 
 		<nav
@@ -60,40 +65,58 @@
 	</div>
 
 
-
-	<div id="body" style="padding-top: 15%">
+	<div id="body" class="w3-container" style="padding-top: 5%">
 		<div>
+			<form class="navbar-form navbar-left" role="search">
+				<div class="form-group">
+					<input type="text" class="form-control input-group input-group-lg"
+						name="flightNumber" placeholder="Flight Number">
+				</div>
+				<button type="submit" class="btn btn-default">Submit</button>
 
-			<p class="title" align="center">Flight Schedule Prediction</p>
+			</form>
 		</div>
-		<form role="form" action="/SchedulePredict/predict/" method="get"
-			ng-controller="searchController">
-			<div>
-				<div class="input-group input-group-lg" align="center"
-					style="padding-left: 25%; padding-right: 25%">
-					<span class="input-group-addon" id="sizing-addon1"><i
-						class="fa fa-plane"></i></span> <input type="text" id="flightNumber"
-						name="flightNumber" align="middle" class="form-control"
-						ng-model="flightNumber" placeholder="Flight Number"
-						aria-describedby="sizing-addon1">
-				</div>
+		<div style="padding-top: 6%">
+			<div align="center">
 
+				<c:if test="${status != 404}">
+					<h1>
+						${flightNumber} <small>${departureFrom} to ${arrival}</small>
+					</h1>
+					<br />
+					<p>The prediction for the next five days are as follows:
+					<ul class="w3-ul w3-card-4">
+						<c:forEach var="predict" items="${predictions}">
+							<li class="w3-padding-hor-16"><span
+								onclick="this.parentElement.style.display='none'"
+								class="w3-closebtn w3-padding w3-margin-right w3-medium">x</span>
+								<c:if test="${predict.getPid() == 0}">
+									<p>
+										<img src="../resources/images/green.png"
+											class="w3-left w3-circle w3-margin-right" style="width: 60px">
+								</c:if> <c:if test="${predict.getPid() == 1}">
+									<p>
+										<img src="../resources/images/red.png"
+											class="w3-left w3-circle w3-margin-right" style="width: 60px">
+								</c:if> <c:if test="${predict.getPid() == 2}">
+									<p>
+										<img src="../resources/images/orange.png"
+											class="w3-left w3-circle w3-margin-right" style="width: 60px">
+								</c:if> <span class="w3-xlarge">${predict.getPrediction()}</span></li>
+						</c:forEach>
+					</ul>
+				</c:if>
+				<c:if test="${status == 404}">
+					<div class="alert alert-danger" role="alert">
+						Please enter a valid flight number!<br>example: search for
+						flight <b>AI102</b>
+					</div>
+				</c:if>
 			</div>
-			<br>
-			<div class="row" style="padding-left: 25%; padding-right: 25%">
 
-				<div class="col-xs-6">
-					<input type="submit" value="search"
-						class="btn btn-default buttonSearch" style="width: 50%;">
-				</div>
-				<div class="col-xs-6">
-					<input type="button" value="Cancel"
-						class="btn btn-default buttonCancel" style="width: 50%;">
-				</div>
-
-			</div>
-		</form>
+		</div>
 	</div>
+
 
 	<div id="footer" class=" schedule-footer poiret">
 		<footer>
@@ -101,5 +124,4 @@
 		</footer>
 	</div>
 </body>
-
 </html>
