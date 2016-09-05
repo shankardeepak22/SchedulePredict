@@ -65,58 +65,62 @@
 	</div>
 
 
-	<div id="body" class="w3-container" style="padding-top: 5%">
-		<div>
-			<form class="navbar-form navbar-left" role="search">
-				<div class="form-group">
-					<input type="text" class="form-control input-group input-group-lg"
-						name="flightNumber" placeholder="Flight Number">
-				</div>
-				<button type="submit" class="btn btn-default">Submit</button>
-
-			</form>
-		</div>
-		<div style="padding-top: 6%">
-			<div align="center">
-
-				<c:if test="${status != 404}">
-					<h1>
-						${flightNumber} <small>${departureFrom} to ${arrival}</small>
-					</h1>
-					<br />
-					<p>The prediction for the next five days are as follows:
-					<ul class="w3-ul w3-card-4">
-						<c:forEach var="predict" items="${predictions}">
-							<li class="w3-padding-hor-16"><span
-								onclick="this.parentElement.style.display='none'"
-								class="w3-closebtn w3-padding w3-margin-right w3-medium">x</span>
-								<c:if test="${predict.getPid() == 0}">
-									<p>
-										<img src="../resources/images/green.png"
-											class="w3-left w3-circle w3-margin-right" style="width: 60px">
-								</c:if> <c:if test="${predict.getPid() == 1}">
-									<p>
-										<img src="../resources/images/red.png"
-											class="w3-left w3-circle w3-margin-right" style="width: 60px">
-								</c:if> <c:if test="${predict.getPid() == 2}">
-									<p>
-										<img src="../resources/images/orange.png"
-											class="w3-left w3-circle w3-margin-right" style="width: 60px">
-								</c:if> <span class="w3-xlarge">${predict.getPrediction()}</span></li>
-						</c:forEach>
-					</ul>
-				</c:if>
-				<c:if test="${status == 404}">
-					<div class="alert alert-danger" role="alert">
-						Please enter a valid flight number!<br>example: search for
-						flight <b>AI102</b>
+	<div class="container">
+		<div id="body" class="w3-container" style="padding-top: 5%">
+			<div>
+				<form class="navbar-form navbar-left" role="search">
+					<div class="form-group">
+						<input type="text" class="form-control input-group input-group-lg"
+							name="flightNumber" placeholder="Flight Number">
 					</div>
-				</c:if>
-			</div>
+					<button type="submit" class="btn btn-default">Submit</button>
 
+				</form>
+			</div>
+			<div style="padding-top: 6%">
+				<div align="center">
+
+					<c:if test="${status != 404}">
+						<h1>
+							${flightNumber} <small>${departureFrom} to ${arrival}</small>
+						</h1>
+						<br />
+						<p>The prediction for the next five days are as follows:
+						<ul class="w3-ul w3-card-4">
+							<c:forEach var="predict" items="${predictions}">
+								<li class="w3-padding-hor-16"><span
+									onclick="this.parentElement.style.display='none'"
+									class="w3-closebtn w3-padding w3-margin-right w3-medium">x</span>
+									<c:if test="${predict.getPid() == 0}">
+										<p>
+											<img src="../resources/images/green.png"
+												class="w3-left w3-circle w3-margin-right"
+												style="width: 60px">
+									</c:if> <c:if test="${predict.getPid() == 1}">
+										<p>
+											<img src="../resources/images/red.png"
+												class="w3-left w3-circle w3-margin-right"
+												style="width: 60px">
+									</c:if> <c:if test="${predict.getPid() == 2}">
+										<p>
+											<img src="../resources/images/orange.png"
+												class="w3-left w3-circle w3-margin-right"
+												style="width: 60px">
+									</c:if> <span class="w3-xlarge">${predict.getPrediction()}</span></li>
+							</c:forEach>
+						</ul>
+					</c:if>
+					<c:if test="${status == 404}">
+						<div class="alert alert-danger" role="alert">
+							Please enter a valid flight number!<br>example: search for
+							flight <b>AI102</b>
+						</div>
+					</c:if>
+				</div>
+
+			</div>
 		</div>
 	</div>
-
 
 	<div id="footer" class=" schedule-footer poiret">
 		<footer>
