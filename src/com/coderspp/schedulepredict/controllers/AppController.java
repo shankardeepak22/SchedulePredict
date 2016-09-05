@@ -31,6 +31,7 @@ public class AppController {
 	}
 
 	@RequestMapping(value = "/swagger", method = RequestMethod.GET)
+	@Deprecated
 	public ModelAndView swagger() {
 		ModelAndView modelAndView = new ModelAndView("swagger");
 		return modelAndView;
